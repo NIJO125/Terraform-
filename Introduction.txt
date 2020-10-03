@@ -1,0 +1,10 @@
+Terraform is an open source utility, created by the HashiCorp company, the
+same company that created Vagrant, Packer, Consul, and other popular
+infrastructure tools. It was initially released in July 2014, and since then, has
+come a long way to become one of the most important tools for infrastructure
+provisioning and management.
+This is how Terraform is described by HashiCorp:
+... a tool for safely and ef iciently building, combining, and launching
+infrastructure. From physical servers to containers to SaaS products,
+Terraform is able to create and compose all the components necessary to run
+any service or application. (https://www.hashicorp.com/blog/terraform.html).

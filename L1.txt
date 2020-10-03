@@ -1,0 +1,49 @@
+terraform
+
+We have a working Terraform installation now. We are ready to write our
+first template. First, create an empty directory, name it packt-terraform, and
+enter it:
+$> mkdir packt-terraform && cd packt-terraform
+When you run Terraform commands, they look for files with the .tf
+
+
+Let's create our very first, not yet very useful, template:
+$> touch template.tf
+
+To apply the template, you need to run the terraform apply command. What
+does this applying mean? In Terraform, when you run apply, it will read your
+templates and it will try to create an infrastructure exactly as it's defined in
+your templates. We will go deeper into how Terraform exactly processes
+templates in a later chapter.
+For now, let's just apply our empty template:
+$> terraform apply
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.
+After each run is finished, you get the number of resources that you've added,
+changed, and destroyed. In this case, it did nothing, as we just have an empty
+file instead of a real template
+
+Providers are something you use to configure access to the service you
+create resources for. For example, if you want to create AWS resources, you
+need to configure the AWS provider. This would specify credentials to access
+the APIs of many AWS services.
+At the time of writing, Terraform has more than 40 providers. This
+impressive list includes not only major cloud providers such as AWS and
+Google Cloud, but also smaller services, such as Fastly, a Content Delivery
+Network (CDN) provider
+
+
+Give template.tf 
+as
+# Provider configuration
+provider "aws" {
+region = "eu-central-1"
+}
+# Resource configuration
+resource "aws_instance" "hello-instance" {
+ami = "ami-9bf712f4"
+instance_type = "t2.micro"
+tags {
+Name = "hello-instance"
+}
+}
+
